@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevTrack | Task Manager</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header>
+        <h1>DevTrack</h1>
+        <p>Your development work, organized.</p>
+    </header>
+    <main>
+        <section class="stats">
+            <article><span>Total tasks</span><strong id="total">0</strong></article>
+            <article><span>To do</span><strong id="pending">0</strong></article>
+            <article><span>In progress</span><strong id="in_progress">0</strong></article>
+            <article><span>Completed</span><strong id="completed">0</strong></article>
+        </section>
+        <section class="panel">
+            <h2 id="form-heading">Create a task</h2>
+            <form id="task-form">
+                <input type="hidden" id="task-id">
+                <label for="title">Task title *</label>
+                <input id="title" maxlength="150" required placeholder="e.g. Complete Python project">
+                <label for="description">Description</label>
+                <textarea id="description" maxlength="2000" placeholder="What needs to be done?"></textarea>
+                <div class="form-row">
+                    <div>
+                        <label for="priority">Priority</label>
+                        <select id="priority"><option>Low</option><option selected>Medium</option><option>High</option></select>
+                    </div>
+                    <div>
+                        <label for="status">Status</label>
+                        <select id="status"><option>To Do</option><option>In Progress</option><option>Completed</option></select>
+                    </div>
+                </div>
+                <label for="deadline">Deadline</label>
+                <input id="deadline" type="date">
+                <div class="actions">
+                    <button type="submit" id="save-button">Save task</button>
+                    <button type="button" id="cancel-button" class="secondary" hidden>Cancel edit</button>
+                </div>
+            </form>
+        </section>
+        <section class="panel">
+            <h2>Your tasks</h2>
+            <div class="filters">
+                <input id="search" placeholder="Search task titles...">
+                <select id="filter-status"><option value="">All statuses</option><option>To Do</option><option>In Progress</option><option>Completed</option></select>
+                <select id="filter-priority"><option value="">All priorities</option><option>Low</option><option>Medium</option><option>High</option></select>
+            </div>
+            <p id="message" role="status"></p>
+            <div id="task-list"></div>
+        </section>
+    </main>
+    <script src="/static/app.js"></script>
+</body>
+</html>
